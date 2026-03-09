@@ -119,12 +119,14 @@ class StockAnalyzer:
 
 
     def generate_signal(self, df, features):
+        df_ml = df.copy()
 
-        df["TARGET"] = (df["Close"].shift(-1) > df["Close"]).astype(int)
-        df.dropna(inplace=True)
+        df_ml["TARGET"] = (df_ml["Close"].shift(-1) > df_ml["Close"]).astype(int)
 
-        X = features.loc[df.index]
-        y = df["TARGET"]
+        df_ml = df_ml.dropna()
+
+        X = features.loc[df_ml.index]
+        y = df_ml["TARGET"].values.ravel()
 
         model = RandomForestClassifier(
             n_estimators=200,
@@ -150,7 +152,6 @@ class StockAnalyzer:
 
         confidence = round(max(buy_prob, sell_prob) * 100, 2)
 
-        # FEATURE IMPORTANCE
         importance = model.feature_importances_
         feature_names = X.columns
 
