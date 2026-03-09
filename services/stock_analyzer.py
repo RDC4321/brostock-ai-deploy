@@ -153,12 +153,12 @@ class StockAnalyzer:
         confidence = round(max(buy_prob, sell_prob) * 100, 2)
 
         importance = model.feature_importances_
-        feature_names = X.columns
+        feature_names = list(X.columns)
 
-        importance_map = {
-            feature_names[i]: round(float(importance[i]), 3)
-            for i in range(len(feature_names))
-        }
+        importance_map = {}
+
+        for i, name in enumerate(feature_names):
+            importance_map[str(name)] = float(round(importance[i], 3))
 
         return {
             "signal": signal,
