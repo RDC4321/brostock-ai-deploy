@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BroStock AI</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    </head>
+
+    <body>
+        <div class="app-container">
+            <header class="app-header">
+                <h1>BroStock AI</h1>
+                <div class="search-bar">
+                    <input type="text" id="tickerInput" placeholder="Enter stock ticker (ex. AAPL)">
+                    <button onclick="searchStock()">Analyze</button>
+                </div>
+            </header>
+            <div class="price-card">
+                <span id="loadingText" style="display: none;">Loading...</span>
+                <span id="priceText"></span>
+                <span id="changeText"></span>
+            </div>
+            <div class="mode-toggle">
+                <button id="techMode" class="mode-btn active">Technical</button>
+                <button id="aiMode" class="mode-btn">AI Forecast</button>
+            </div>
+            <div id="technicalControls" class="controls">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleMA7" checked>
+                    <span>MA7</span>
+                </label>
+                <label class="toggle">
+                    <input type="checkbox" id="toggleMA21" checked>
+                    <span>MA21</span>
+                </label>
+            </div>
+            <div id="technicalPanels">
+                <div class="chart-card">
+                    <canvas id="stockChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <canvas id="rsiChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <canvas id="macdChart"></canvas>
+                </div>
+            </div>
+            <div id="aiPanels" style="display: none;">
+            <div class="ai-header">
+                <div id="aiControls" class="controls">
+                    <span class="forecast-label">Forecast Horizon</span>
+                    <div class="forecast-buttons">
+                        <button class="forecast-btn active" data-days="7">7D</button>
+                        <button class="forecast-btn" data-days="14">14D</button>
+                        <button class="forecast-btn" data-days="30">30D</button>
+                    </div>
+                </div>
+                <div id="signalBox">
+                    <div class="signal-card">
+                        <div class="signal-title">AI SIGNAL</div>
+                        <div id="aiSignal" class="signal-value">-</div>
+                        <div id="signalConfidence" class="signal-confidence"></div>
+                        <div id="signalDetails" class="signal-details"></div>
+                    </div>
+                </div>
+            </div>
+                <div class="chart-card">
+                    <canvas id="aiChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="/static/js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,271 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: white;
+}
+
+.app-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #00ffcc;
+    text-shadow: 
+        0 0 10px rgba(0,255,204,0.6),
+        0 0 20px rgba(0,255,204,0.3);        
+}
+
+.search-bar input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-bar button {
+    margin-left: 10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: #00ffcc;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.search-bar button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0,255,204,0.6);
+}
+
+.price-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.chart-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(8px);
+    height: 400px;
+    position:relative;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.mode-btn {
+    background:transparent;
+    border: 1px solid #00ffcc;
+    color: #00ffcc;
+    padding: 6px 14px;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.mode-btn.active {
+    background: #00ffcc;
+    color: black;
+    box-shadow: 0 0 12px rgba(0,255,204,0.7);
+}
+
+.change.positive {
+    color: #00ff99;
+}
+
+.change.negative {
+    color: #ff4d4d;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle span {
+    border: 1px solid #00ffcc;
+    padding:6px 12px;
+    border-radius:20px;
+    color:#00ffcc;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.toggle input:checked + span{
+    background:#00ffcc;
+    color:black;
+    box-shadow:0 0 6px rgba(0,255,204,0.5);
+}
+
+#forecastDays{
+    background: rgba(255,255,255,0.05);
+    color: #00ffcc;
+    border:1px solid #00ffcc;
+    border-radius: 20px;
+    padding:6px 12px;
+    margin-left:10px;
+    outline:none;
+    cursor:pointer;
+}
+#forecastDays option{
+    background: #1a1a1a;
+    color: #00ffcc;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.mode-toggle{
+    margin-bottom: 15px;
+}
+
+#aiControls{
+    margin-bottom: 20px;
+}
+
+.forecast-buttons{
+    display:flex;
+    gap: 10px;
+}
+.forecast-btn{
+    background: transparent;
+    border: 1px solid #00ffcc;
+    color:#00ffcc;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.forecast-btn:hover{
+    box-shadow: 0 0 8px rgba(0,255,204,0.5);
+}
+
+.forecast-btn.active{
+    background: #00ffcc;
+    color: black;
+    box-shadow: 0 0 10px rgba(0,255,204,0.6);
+}
+
+.ai-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+#aiSignal {
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.signal-card{
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(0,255,204,0.4);
+    backdrop-filter:blur(6px);
+    margin-bottom:15px;
+    min-width:160px;
+    text-align:center;
+}
+
+.signal-title{
+    font-size:12px;
+    letter-spacing:1px;
+    color:#00ffcc;
+    opacity:0.8;
+}
+
+.signal-value{
+    font-size:24px;
+    font-weight:700;
+    margin-top:4px;
+}
+
+.signal-confidence{
+    font-size:12px;
+    margin-top:4px;
+    opacity:0.7;
+}
+
+#signalBox{
+    font-size: 16px;
+    font-weight: 600;
+    color: #00f5c4;
+    margin: 0;
+    display:flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+    margin-bottom:20px;
+}
+
+.buy {
+    background: rgba(0,255,150,0.15);
+    color: #00ff95;
+    border: 1px solid #00ff95;
+    box-shadow:0 0 10px #00ff95;
+}
+
+.sell {
+    background: rgba(255,70,70,0.15);
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    box-shadow:0 0 10px #ff4d4d;
+}
+
+.hold {
+    background: rgba(255,200,0,0.15);
+    color: #ffc400;
+    border: 1px solid #ffc400;
+    box-shadow:0 0 10px #ffc400;
+}
+
+.strongbuy {
+    background: rgba(0,255,150,0.25);
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 8px #00ffcc;
+}
+
+.strongsell {
+    background: rgba(255,70,70,0.15);
+    color: #ff0066;
+    border: 1px solid #ff0066;
+    box-shadow: 0 0 8px #ff0066;
+}
+
+.forecast-label{
+    color:#00ffcc;
+    font-weight:600;
+}
